@@ -1,187 +1,84 @@
-/* Reset and base styles */
-* {
-    box-sizing: border-box;
-    margin: 0;
+/* Styles for the side menu */
+#side-menu {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Initially hidden off-screen */
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    transition: left 0.3s ease; /* Smooth transition */
+    padding-top: 60px; /* Space for header */
+    z-index: 1000; /* Ensure it's above other content */
+}
+
+#side-menu ul {
+    list-style-type: none;
     padding: 0;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #444;
-    line-height: 1.6;
-    background-color: #f8f9fa;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-}
-
-.container {
-    width: 80%;
-    margin: auto;
-    padding: 20px;
-}
-
-/* Header styles */
-header {
-    background-color: #343a40;
-    color: #fff;
-    padding: 10px 0;
-}
-
-.header-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-header h1 {
-    font-size: 1.8rem;
     margin: 0;
 }
 
-.menu-toggle {
-    display: none; /* Hide by default on larger screens */
-}
-
-.menu-toggle-btn {
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 20px;
-    width: 30px;
-}
-
-.menu-toggle-btn span {
-    background-color: #fff;
-    display: block;
-    height: 3px;
-    width: 100%;
-    transition: transform 0.3s ease-in-out;
-}
-
-.menu-toggle-btn:hover span {
-    background-color: #ccc;
-}
-
-#menu-toggle-checkbox {
-    display: none;
-}
-
-#menu-toggle-checkbox:checked + .menu-toggle-btn span:nth-child(1) {
-    transform: translateY(6px) rotate(45deg);
-}
-
-#menu-toggle-checkbox:checked + .menu-toggle-btn span:nth-child(2) {
-    opacity: 0;
-}
-
-#menu-toggle-checkbox:checked + .menu-toggle-btn span:nth-child(3) {
-    transform: translateY(-6px) rotate(-45deg);
-}
-
-.nav-menu {
-    display: flex;
-    justify-content: flex-end;
-}
-
-.nav-menu ul {
-    list-style: none;
-    display: flex;
-}
-
-.nav-menu ul li {
-    margin-left: 20px;
-}
-
-.nav-menu ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1rem;
+#side-menu ul li {
     padding: 10px;
-    transition: all 0.3s ease;
+    text-align: center;
 }
 
-.nav-menu ul li a:hover {
+#side-menu ul li a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+}
+
+#side-menu ul li a:hover {
     background-color: #555;
 }
 
-/* Main styles */
-main {
-    padding: 20px 0;
+.container {
+    width: 90%;
+    margin: 0 auto;
 }
 
-section {
-    margin-bottom: 30px;
+/* Styles for the menu toggle button */
+.menu-toggle {
+    display: none; /* Hide by default for non-mobile */
+    cursor: pointer;
 }
 
-h2 {
-    font-size: 1.5rem;
-    border-bottom: 2px solid #007bff;
-    padding-bottom: 5px;
-    margin-bottom: 20px;
+.menu-bar {
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 5px 0;
+    transition: transform 0.3s ease;
 }
 
-p {
-    font-size: 1.1rem;
-    line-height: 1.8;
+.menu-toggle.open .menu-bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
 }
 
-/* Footer styles */
-footer {
-    background-color: #343a40;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+.menu-toggle.open .menu-bar:nth-child(2) {
+    opacity: 0;
 }
 
-/* Responsive styles */
+.menu-toggle.open .menu-bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
 @media (max-width: 768px) {
-    .container {
-        width: 90%;
-    }
-
-    header .header-top {
-        justify-content: space-between;
-        align-items: center;
-    }
-
     .menu-toggle {
-        display: block;
+        display: block; /* Show for mobile and tablet */
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        z-index: 1500; /* Ensure above other content */
     }
 
-    .nav-menu {
-        position: fixed;
-        top: 0;
-        right: 0;
-        height: 100vh;
-        width: 70%;
-        background-color: #343a40;
-        z-index: 1000;
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
+    #side-menu {
+        left: -250px; /* Initially hidden off-screen */
     }
 
-    .nav-menu.open {
-        transform: translateX(0);
-    }
-
-    .nav-menu ul {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-    }
-
-    .nav-menu ul li {
-        margin: 20px 0;
-    }
-
-    .nav-menu ul li a {
-        padding: 10px;
-        font-size: 1.2rem;
+    .menu-toggle.open #side-menu {
+        left: 0; /* Slide in from the left */
     }
 }
