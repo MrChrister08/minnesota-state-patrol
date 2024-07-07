@@ -1,9 +1,5 @@
-// scripts.js
-document.addEventListener('DOMContentLoaded', function() {
-    const menuToggle = document.querySelector('.menu-toggle-btn');
-    const navMenu = document.querySelector('.nav-menu');
-
-    menuToggle.addEventListener('click', function() {
-        navMenu.classList.toggle('open');
-    });
-});
+function toggleMenu() {
+    var sideMenu = document.getElementById('side-menu');
+    var menuToggle = document.querySelector('.menu-toggle');
+    menuToggle.classList.toggle('open');
+}
