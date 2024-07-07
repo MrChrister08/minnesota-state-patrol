@@ -5,17 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Careers - Minnesota State Patrol</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script src="js/scripts.js" defer></script>
 </head>
 <body>
     <header>
         <div class="container">
             <!-- Header content with logo and navigation -->
             <h1>Minnesota State Patrol</h1>
-            <nav>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <div class="menu-bar"></div>
+                <div class="menu-bar"></div>
+                <div class="menu-bar"></div>
+            </div>
+            <nav id="side-menu">
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
-                    <li><a href="services.html">Services</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Services &#9662;</a>
+                        <div class="dropdown-content">
+                            <a href="service1.html">Service 1</a>
+                            <a href="service2.html">Service 2</a>
+                            <a href="service3.html">Service 3</a>
+                        </div>
+                    </li>
                     <li><a href="public_safety.html">Public Safety</a></li>
                     <li><a href="careers.html">Careers</a></li>
                     <li><a href="news.html">News & Events</a></li>
@@ -28,8 +41,8 @@
         <div class="container">
             <section>
                 <h2>Careers</h2>
-                <p>Replace this paragraph with information about career opportunities within the Minnesota State Patrol.</p>
-                <p>Include details about job descriptions, requirements, benefits, and how to apply.</p>
+                <p>Replace this paragraph with information about career opportunities at the Minnesota State Patrol.</p>
+                <p>Include details on job openings, requirements, benefits, and how to apply.</p>
             </section>
         </div>
     </main>
@@ -38,6 +51,5 @@
             <p>&copy; 2024 Minnesota State Patrol. All rights reserved.</p>
         </div>
     </footer>
-    <script src="js/scripts.js"></script>
 </body>
 </html>
